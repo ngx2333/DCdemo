@@ -36,7 +36,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../main.html" class="nav-link">主页</a>
+        <a href="main.html" class="nav-link">主页</a>
       </li>
 
     </ul>
@@ -89,6 +89,7 @@
       <span class="brand-text font-weight-light">BigHit 赛事后台</span>
     </a>
 
+
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -110,7 +111,7 @@
 
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="scadmin_comp_list.html" class="nav-link">
               <i class="nav-icon fas fa-list-ul"></i>
               <p>
                 比赛列表
@@ -121,7 +122,7 @@
 
        
           <li class="nav-item">
-            <a href="scadmin_create_comp.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
                 发布比赛
@@ -156,12 +157,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>比赛列表</h1>
+            <h1>队伍列表</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">主页</a></li>
-              <li class="breadcrumb-item active">比赛列表</li>
+              <li class="breadcrumb-item active">队伍列表</li>
             </ol>
           </div>
         </div>
@@ -173,30 +174,28 @@
               <div class="row">
                   <div class="col-3">
                       <div class="form-group">
-                          <label>赛事名称:</label>
-                          <input type="search" class="form-control " value="17探索自然8">
+                          <label>队伍名称:</label>
+                          <input type="search" class="form-control " value="lalala">
                       </div>
                   </div>
                   <div class="col-3">
                       <div class="form-group">
-                          <label>赛事类型:</label>
-                          <select class="select2" style="width: 100%">
-                              <option>个人</option>
-                              <option>赤骥社</option>
-                              <option>其他</option>
-                          </select>
+                          <label>队长名:</label>
+                          <input type="search" class="form-control " value="">
                       </div>
                   </div>
                   <div class="col-3">
                       <div class="form-group">
-                          <label>赛事状态 :</label>
-                          <select class="select2 " style="width: 100%;">
-                              <option selected>报名阶段</option>
-                              <option>进行中</option>
-                              <option>已经结束</option>
-                          </select>
+                          <label>队长学号 :</label>
+                          <input type="search" class="form-control " value="">
                       </div>
                   </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                        <label>队长学院:</label>
+                        <input type="search" class="form-control " value="">
+                    </div>
+                </div>
               </div>
               <div class="form-group">
                   <div class="input-group input-group-lg">
@@ -218,7 +217,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">比赛信息</h3>
+                <h3 class="card-title">队伍信息</h3>
               </div>
 
 
@@ -230,15 +229,14 @@
                 <table id="example2" class="table table-bordered table-hover text-center">
                   <thead>
                   <tr>
-                    <th>赛事名称</th>
-                    <th>主办方</th>
-                    <th>赞助方</th>
-                    <th>赛事类型</th>
-                    <th>赛事状态</th>
-                    <th>发布日期</th>
-                    <th>参赛人数</th>       
-                    <th></th>
-                              
+                    <th>队伍名</th>
+                    <th>队长</th>
+                    <th>队长学号</th>
+                    <th>队长学院</th>
+                    <th>队伍人数</th>
+                    <th>队伍状态</th>
+                    <th>归属比赛</th>
+                    <th></th>          
                   </tr>
                   </thead>
                   <tbody>
@@ -247,28 +245,62 @@
                     <!-- <th >
                       <div class="row">
                         <div class="col-md-6">
-                          <button type="button" class="btn btn-primary  ">查看</button>
+                          <button type="button" class="btn btn-primary btn-block">查看</button>
 
                         </div>
                         <div class="col-md-6">
-                          <button type="button" class="btn btn-outline-primary  ">参加</button>
+                          <button type="button" class="btn btn-outline-primary btn-block">参加</button>
                         </div>
                       </div>
                     </th>         -->
 
                     <tr>
-                      <td>团结杯</td>
-                      <td>赤骥社</td>
+                      <td>lalala</td>
+                      <td>牛xx</td>
                       <td>xxx</td>
-                      <td>赤骥社</td>
-                      <td>报名阶段</td>
-                      <td>2019-07-15</td>
-                      <td>100</td>    
+                      <td>20161401205</td>
+                      <td>信息科学与工程</td>
+                      <td>3</td>
+                      <td>自由杯</td>    
                       <th >
 
                         <div class=" offset-md-1">
-                          <button type="button" class="btn btn-success " data-toggle="modal" data-target="#modal-edit" >调整赛事</button>
+                          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-detail">详细信息</button>
+                          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-join">审核通过</button>
+                        </div>
+                    </th>                      
+                    </tr>
 
+                    <tr>
+                      <td>挑战自我</td>
+                      <td>徐xx</td>
+                      <td>xxx</td>
+                      <td>20161401233</td>
+                      <td>生命科学与工程</td>
+                      <td>4</td>
+                      <td>自由杯</td>    
+                      <th >
+
+                        <div class=" offset-md-1">
+                          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-detail">详细信息</button>
+                          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-join">审核通过</button>
+                        </div>
+                    </th>                      
+                    </tr>
+
+
+                    <tr>
+                      <td>你说的都队</td>
+                      <td>xxx</td>
+                      <td>xxx</td>
+                      <td>201614012xx</td>
+                      <td>数学与系统学院</td>
+                      <td>4</td>
+                      <td>test杯</td>    
+                      <th >
+
+                        <div class=" offset-md-1">
+                            已通过
                         </div>
                     </th>                      
                     </tr>
@@ -278,101 +310,6 @@
 
 
 
-
-
-                    <tr>
-                      <td>17探索自然8</td>
-                      <td>计算机16-1班</td>
-                      <td>无</td>
-                      <td>个人</td>
-                      <td>已经结束</td>
-                      <td>2019-05-15</td>
-                      <td>20</td>   
-                      <td >
-                        <div class=" offset-md-1">
-                            <button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#modal-results">赛事结果</button>
-                          </div>
-                      </td>     
-                    </tr>
-
-
-                    <tr>
-                      <td>自由杯</td>
-                      <td>赤骥社</td>
-                      <td>xx</td>
-                      <td>赤骥社</td>
-                      <td>进行中</td>
-                      <td>2019-09-10</td>
-                      <td>10</td>   
-                      <td >
-                        <div class=" offset-md-1"  >
-                          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-results">实时数据</button>
-                          <button type="button" class="btn btn-success " data-toggle="modal" data-target="#modal-results">调整赛事</button>
-                        </div>
-                    </td>       
-                    </tr>
-
-
-                    <tr>
-                      <td>test杯1</td>
-                      <td>xxxxx</td>
-                      <td>xx</td>
-                      <td>赤骥社</td>
-                      <td>进行中</td>
-                      <td>2019-09-03</td>
-                      <td>40</td>   
-                      <td >
-                        <div class=" offset-md-1">
-                          <button type="button" class="btn btn-primary  ">实时数据</button>
-                          <button type="button" class="btn btn-success " >调整赛事</button>
-
-                        </div>
-                    </td>       
-                    </tr>
-                    <tr>
-                      <td>test杯2</td>
-                      <td>xxxxxx</td>
-                      <td>xx</td>
-                      <td>个人</td>
-                      <td>进行中</td>
-                      <td>2019-05-10</td>
-                      <td>30</td>   
-                      <td >
-                        <div class=" offset-md-1">
-                          <button type="button" class="btn btn-primary  " onclick="javascrtpt:window.location.href='../daping.html'">实时数据</button>
-                          <button type="button" class="btn btn-success " >调整赛事</button>
-
-                        </div>
-                    </td>       
-                    </tr>
-                    <tr>
-                      <td>test杯3</td>
-                      <td>xxxxxx</td>
-                      <td>xx</td>
-                      <td>赤骥社</td>
-                      <td>已经结束</td>
-                      <td>2018-05-10</td>
-                      <td>20</td>   
-                      <td >
-                        <div class=" offset-md-1">
-                          <button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#modal-results">赛事结果</button>
-                        </div>
-                    </td>       
-                    </tr>
-                    <tr>
-                      <td>自由杯11</td>
-                      <td>赤骥社</td>
-                      <td>xx</td>
-                      <td>其他</td>
-                      <td>已经结束</td>
-                      <td>2019-07-10</td>
-                      <td>10</td>   
-                      <td >
-                        <div class=" offset-md-1">
-                          <button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#modal-results">赛事结果</button>
-                        </div>
-                    </td>       
-                    </tr>
 
 
 
@@ -466,28 +403,58 @@
   </div>
   </div>
 
-  <div class="modal fade col-12"  id="modal-edit">
-    <div class="modal-dialog ">
+  <div class="modal fade col-12"  id="modal-detail">
+    <div class="modal-dialog modal-lg ">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">调整赛事状态</h4>
+          <h4 class="modal-title">队员信息</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="card-body">
-            <div class="form-group">
-              <label>赛事状态</label>
-              <select class="form-control" style="width: 100%;">
-                <option>比赛进行</option>
-                <option>比赛结束</option> 
-              </select>
-            </div>
+            <table id="example2" class="table table-bordered table-hover text-center">
+              <thead>
+              <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>学号</th>
+                <th>学院</th>
+    
+              </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td>1</td>
+                  <td>吴xx</td>
+                  <td>20161401201</td>
+                  <td>信息科学与工程</td>
+             
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>徐xx</td>
+                  <td>20161401233</td>
+                  <td>信息科学与工程</td>
+                  
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>杨xx</td>
+                  <td>20161401204</td>
+                  <td>信息科学与工程</td>
+                  
+                </tr>
+
+
+                </tbody>
+                </table>
         </div>
         <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-primary" >更改</button>
-         
+          <button type="button" class="btn btn-danger"   data-dismiss="modal" >关闭</button>
+
         </div>
       </div>
       <!-- /.modal-content -->

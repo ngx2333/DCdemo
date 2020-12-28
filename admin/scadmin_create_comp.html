@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | DataTables</title>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <title>17探索自然8</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -18,10 +24,27 @@
 
     <!-- Select2 -->
     <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- SweetAlert2 -->
-  <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <link rel="stylesheet" href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Toastr -->
-  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+  <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+
+
+
+
+    <style>
+    body,
+    html,
+    #container {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    </style>
+    <script src="https://api.map.baidu.com/api?type=webgl&v=1.0&ak=puUn7MAx2IDDv2NxTbupBRLDfhAw4bWR"></script>
 
 
 </head>
@@ -85,18 +108,19 @@
     <!-- Brand Logo -->
     <a href="../main.html" class="brand-link">
       <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">BigHit 主页</span>
+      <span class="brand-text font-weight-light">BigHit 赛事后台</span>
     </a>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../dist/img/avatar4.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">ngx233</a>
+          <a href="#" class="d-block">赛事管理员</a>
         </div>
       </div>
 
@@ -109,7 +133,7 @@
 
 
           <li class="nav-item">
-            <a href="comp_list.html" class="nav-link">
+            <a href="scadmin_comp_list.html" class="nav-link">
               <i class="nav-icon fas fa-list-ul"></i>
               <p>
                 比赛列表
@@ -120,31 +144,23 @@
 
        
           <li class="nav-item">
-            <a href="my_team_list.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
-                我的队伍
+                发布比赛
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="team_list.html" class="nav-link">
               <i class="nav-icon fas fa-dice-d20"></i>
               <p>
-                我的比赛
+                审核队伍
               </p>
             </a>
           </li>
 
 
-          <li class="nav-item">
-            <a href="my_setting.html" class="nav-link">
-              <i class="nav-icon fas fa-user-cog"></i>
-              <p>
-                我的信息
-              </p>
-            </a>
-          </li>
 
 
 
@@ -163,12 +179,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>赛事列表</h1>
+            <h1>发布比赛</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">主页</a></li>
-              <li class="breadcrumb-item active">赛事列表</li>
+              <li class="breadcrumb-item active">发布比赛</li>
             </ol>
           </div>
         </div>
@@ -182,115 +198,120 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">正在进行</h3>
+                <h3 class="card-title">比赛信息</h3>
               </div>
               <div class="card-body col-12">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-12">
+ 
+    
+                    </div>
 
 
-
-                <div>
-                <table class="table table-bordered table-hover text-center">
-                  <thead>
-                  <tr>
-             
-                    <th>赛事名称</th>
-                    <th>主办方</th>
-                    <th>赛事类型</th>
-                    <th>发布日期</th>
-                    <th></th>          
-                  </tr>
-                  </thead>
-                  <tbody>
-
-                    <tr>
-                      <td>自由杯4</td>
-                      <td>赤骥社</td>
-                      <td>赤骥社</td>
-                      <td>2020-12-25</td>
-                      <th >
-                          <button type="button" class="btn btn-primary " >实时数据</button>
-                    </th>                      
-                    </tr>
-                    
-
-                    </tbody>
-                    </table>
                   </div>
-              </div>
+
+<div class="row">
+
+              <div class="col-md-8 col-sm-6 col-10 offset-sm-2">
+              <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
               
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">我的赛事</h3>
-              </div>
-              <div class="card-body col-12">
-
-
-
-                <div>
-                <table id="example2" class="table table-bordered table-hover text-center">
-                  <thead>
-                  <tr>
-                    <th>序号</th>
-                    <th>赛事名称</th>
-                    <th>主办方</th>
-                    <th>赛事类型</th>
-                    <th>发布日期</th>
-                    <th>参赛人数</th>  
-                    <th>队伍排名</th>     
-                    <th></th>          
-                  </tr>
-                  </thead>
-                  <tbody>
-
-                    <tr>
-                      <td>1</td>
-                      <td>团结杯</td>
-                      <td>赤骥社</td>
-                      <td>赤骥社</td>
-                      <td>2019-07-15</td>
-                      <td>100</td>    
-                      <td>2</td>
-                      <th >
-
-                          <button type="button" class="btn btn-primary btn-block" >赛事结果</button>
-                    </th>                      
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>test杯2</td>
-                      <td>信息学院</td>
-                      <td>其他</td>
-                      <td>2019-07-15</td>
-                      <td>70</td>    
-                      <td>4</td>
-                      <th >
-
-                          <button type="button" class="btn btn-primary btn-block" >赛事结果</button>
-                    </th>                      
-                    </tr>
-
-                    <tr>
-                      <td>3</td>
-                      <td>test杯3</td>
-                      <td>xxx</td>
-                      <td>个人</td>
-                      <td>2019-10-01</td>
-                      <td>20</td>    
-                      <td>1</td>
-                      <th >
-
-                          <button type="button" class="btn btn-primary btn-block" >赛事结果</button>
-                    </th>                      
-                    </tr>
-
-                    
-                    </tbody>
-                    </table>
+              <div class="tab-pane" id="settings">
+                <form class="form-horizontal">
+                  <div class="form-group row">
+                    <div class="offset-sm-1 col-sm-1">
+                      <div class="checkbox">
+                        <label>
+ 
+                        </label>
+                      </div>
+                    </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label for="inputName" class="col-sm-2 col-form-label">赛事名称</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputName" placeholder="赛事名称">
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputName2" class="col-sm-2 col-form-label">主办方</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputName2" placeholder="主办方">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-2 col-form-label">赞助方</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputEmail" placeholder="赞助方">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputExperience" class="col-sm-2 col-form-label">赛事类型</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" id="inputExperience" placeholder="赛事类型">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputSkills" class="col-sm-2 col-form-label">比赛时间</label>
+                    <div class="col-sm-10">
+                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"  placeholder="选择时间"/>
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+ 
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputSkills" class="col-sm-2 col-form-label">队伍限制</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputSkills" placeholder="队伍限制">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputSkills" class="col-sm-2 col-form-label">地图选择</label>
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <select class="form-control" style="width: 100%;">
+                          <option>新疆大学</option>
+                          <option>自定义地图</option> 
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-1 col-sm-1">
+                      <div class="checkbox">
+                        <label>
+ 
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+
+                    <div class="offset-sm-2 ">
+                      <button type="button"  class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#modal-choice">地图选点</button>
+                    </div>
+                    <div class="offset-sm-2 ">
+
+                      <button type="submit" class="btn btn-primary">发布比赛</button>
+                    </div>
+                  </div>
+                </form>
               </div>
-              
+              </div>
+              </div>
             </div>
+        </div>
+
+              </div>
+            </div>
+
           </div>
           <!-- /.col -->
         </div>
@@ -301,29 +322,32 @@
     <!-- /.content -->
   </div>
 
-  <div class="modal fade col-12"  id="modal-delete">
-    <div class="modal-dialog ">
+
+  
+  <div class="modal fade col-12"  id="modal-choice">
+    <div class="modal-dialog modal-lg">
+      <form>
+
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">删除人员</h4>
+          <h4 class="modal-title">地图定点</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <div class="card-body">
-              是否删除该组员？
-        </div>
+        <div class="modal-body"   >
+
+          <iframe src="../map_marker.html" frameBorder="0" width="770" scrolling="no" height="600"></iframe>
+
         <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-danger"  >是</button>
-          <button type="button" class="btn btn-primary"  >否</button>
+          <button type="submit" class="btn btn-primary"  data-dismiss="modal" >保存</button>
         </div>
       </div>
-      <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
+  </form>
   </div>
   </div>
+
 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -365,6 +389,11 @@
 <script src="../plugins/select2/js/select2.full.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
+<!-- date-range-picker -->
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- BS-Stepper -->
+<script src="../plugins/bs-stepper/js/bs-stepper.min.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -383,8 +412,12 @@
     });
 
     $('.select2').select2();
+
+    $('#reservationdate').datetimepicker();
+
   });
 
 </script>
+
 </body>
 </html>
