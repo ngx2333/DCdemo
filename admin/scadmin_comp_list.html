@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | DataTables</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../main.html" class="nav-link">主页</a>
+      </li>
+
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../main.html" class="brand-link">
+      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">BigHit 赛事后台</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../dist/img/avatar4.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">赛事管理员</a>
+        </div>
+      </div>
+
+  
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list-ul"></i>
+              <p>
+                比赛列表
+                <!-- 先选择比赛列表，再选择队伍信息 -->
+              </p>
+            </a>
+          </li>
+
+       
+          <li class="nav-item">
+            <a href="my_team_list.html" class="nav-link">
+              <i class="nav-icon fas fa-list-alt"></i>
+              <p>
+                我的队伍
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="my_comp_list.html" class="nav-link">
+              <i class="nav-icon fas fa-dice-d20"></i>
+              <p>
+                我的比赛
+              </p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="my_setting.html" class="nav-link">
+              <i class="nav-icon fas fa-user-cog"></i>
+              <p>
+                我的信息
+              </p>
+            </a>
+          </li>
+
+
+
+
+
+        </ul>
+      </nav>
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>比赛列表</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">主页</a></li>
+              <li class="breadcrumb-item active">比赛列表</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <form action="enhanced-results.html">
+      <div class="row">
+          <div class="col-md-10 offset-md-1">
+              <div class="row">
+                  <div class="col-3">
+                      <div class="form-group">
+                          <label>赛事名称:</label>
+                          <input type="search" class="form-control " value="17探索自然8">
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="form-group">
+                          <label>赛事类型:</label>
+                          <select class="select2" style="width: 100%">
+                              <option>个人</option>
+                              <option>赤骥社</option>
+                              <option>其他</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-3">
+                      <div class="form-group">
+                          <label>赛事状态 :</label>
+                          <select class="select2 " style="width: 100%;">
+                              <option selected>报名阶段</option>
+                              <option>进行中</option>
+                              <option>已经结束</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group input-group-lg">
+                      <input type="search" class="form-control form-control-lg" placeholder="关键词搜索" >
+                      <div class="input-group-append">
+                          <button type="submit" class="btn btn-lg btn-default">
+                              <i class="fa fa-search"></i>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">比赛信息</h3>
+              </div>
+
+
+
+
+
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover text-center">
+                  <thead>
+                  <tr>
+                    <th>赛事名称</th>
+                    <th>主办方</th>
+                    <th>赞助方</th>
+                    <th>赛事类型</th>
+                    <th>赛事状态</th>
+                    <th>发布日期</th>
+                    <th>参赛人数</th>       
+                    <th></th>
+                              
+                  </tr>
+                  </thead>
+                  <tbody>
+
+
+                    <!-- <th >
+                      <div class="row">
+                        <div class="col-md-6">
+                          <button type="button" class="btn btn-primary  ">查看</button>
+
+                        </div>
+                        <div class="col-md-6">
+                          <button type="button" class="btn btn-outline-primary  ">参加</button>
+                        </div>
+                      </div>
+                    </th>         -->
+
+                    <tr>
+                      <td>团结杯</td>
+                      <td>赤骥社</td>
+                      <td>xxx</td>
+                      <td>赤骥社</td>
+                      <td>报名阶段</td>
+                      <td>2019-07-15</td>
+                      <td>100</td>    
+                      <th >
+
+                        <div class=" offset-md-1">
+                          <button type="button" class="btn btn-success " >调整状态</button>
+
+                        </div>
+                    </th>                      
+                    </tr>
+
+
+
+
+
+
+
+
+                    <tr>
+                      <td>17探索自然8</td>
+                      <td>计算机16-1班</td>
+                      <td>无</td>
+                      <td>个人</td>
+                      <td>已经结束</td>
+                      <td>2019-05-15</td>
+                      <td>20</td>   
+                      <td >
+                        <div class=" offset-md-1">
+                            <button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#modal-results">赛事结果</button>
+                          </div>
+                      </td>     
+                    </tr>
+
+
+                    <tr>
+                      <td>自由杯</td>
+                      <td>赤骥社</td>
+                      <td>xx</td>
+                      <td>赤骥社</td>
+                      <td>进行中</td>
+                      <td>2019-09-10</td>
+                      <td>10</td>   
+                      <td >
+                        <div class=" offset-md-1"  >
+                          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-results">实时数据</button>
+                          <button type="button" class="btn btn-success " data-toggle="modal" data-target="#modal-results">调整状态</button>
+                        </div>
+                    </td>       
+                    </tr>
+
+
+                    <tr>
+                      <td>test杯1</td>
+                      <td>xxxxx</td>
+                      <td>xx</td>
+                      <td>赤骥社</td>
+                      <td>进行中</td>
+                      <td>2019-09-03</td>
+                      <td>40</td>   
+                      <td >
+                        <div class=" offset-md-1">
+                          <button type="button" class="btn btn-primary  ">实时数据</button>
+                          <button type="button" class="btn btn-success " >调整状态</button>
+
+                        </div>
+                    </td>       
+                    </tr>
+                    <tr>
+                      <td>test杯2</td>
+                      <td>xxxxxx</td>
+                      <td>xx</td>
+                      <td>个人</td>
+                      <td>进行中</td>
+                      <td>2019-05-10</td>
+                      <td>30</td>   
+                      <td >
+                        <div class=" offset-md-1">
+                          <button type="button" class="btn btn-primary  " onclick="javascrtpt:window.location.href='../daping.html'">实时数据</button>
+                          <button type="button" class="btn btn-success " >调整状态</button>
+
+                        </div>
+                    </td>       
+                    </tr>
+                    <tr>
+                      <td>test杯3</td>
+                      <td>xxxxxx</td>
+                      <td>xx</td>
+                      <td>赤骥社</td>
+                      <td>已经结束</td>
+                      <td>2018-05-10</td>
+                      <td>20</td>   
+                      <td >
+                        <div class=" offset-md-1">
+                          <button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#modal-results">赛事结果</button>
+                        </div>
+                    </td>       
+                    </tr>
+                    <tr>
+                      <td>自由杯11</td>
+                      <td>赤骥社</td>
+                      <td>xx</td>
+                      <td>其他</td>
+                      <td>已经结束</td>
+                      <td>2019-07-10</td>
+                      <td>10</td>   
+                      <td >
+                        <div class=" offset-md-1">
+                          <button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#modal-results">赛事结果</button>
+                        </div>
+                    </td>       
+                    </tr>
+
+
+
+
+
+
+
+
+                  </tbody>
+
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+
+  <div class="modal fade" id="modal-results">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">赛事排名</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card-body">
+            <table id="example2" class="table table-bordered table-hover text-center">
+              <thead>
+              <tr>
+                <th>排名</th>
+                <th>队伍</th>
+                <th>用时</th>
+
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>lalala1</td>
+                  <td>1h</td>   
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>lalala2</td>
+                  <td>1h10m</td>   
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>lalala3</td>
+                  <td>1h20m</td>   
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>lalala4</td>
+                  <td>1h30m</td>   
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>lalala5</td>
+                  <td>1h40m</td>   
+                </tr>
+    
+                <tr>
+                  <td>6</td>
+                  <td>lalala6</td>
+                  <td>1h50m</td>   
+                </tr>
+                
+                
+                </tbody>
+                </table>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  </div>
+
+  <div class="modal fade col-12"  id="modal-join">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">报名参加</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card-body">
+              请创建队伍，或加入队伍。
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#modal-list">前去加入队伍</button>
+          <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#modal-create" >前去创建队伍</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  </div>
+
+  <div class="modal fade col-12"  id="modal-create">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">创建队伍</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">完善队伍信息</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">队伍名称</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="队伍名称">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">队伍最大人数</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="队伍最大人数">
+                </div>
+
+
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">提交队伍</button>
+              </div>
+            </form>
+          </div>
+
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  </div>
+
+
+
+
+  <div class="modal fade col-12"  id="modal-list">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">队伍列表</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card-body">
+            <table id="example2" class="table table-bordered table-hover text-center">
+              <thead>
+              <tr>
+                <th>队伍名称</th>
+                <th>队长</th>
+                <th>人数</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>test杯1</td>
+                  <td>xxxxx</td>
+                  <td>40</td>   
+                  <td >
+                    <div class=" offset-md-1">
+                      <button type="button" class="btn btn-primary "  data-dismiss="modal" data-toggle="modal" data-target="#modal-listsuccess">提交申请</button>
+                    </div>
+                </td>       
+                </tr>
+                </tbody>
+                </table>
+        </div>
+        <div class="modal-footer justify-content-between">  
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  </div>
+
+
+  <div class="modal fade col-12"  id="modal-listsuccess">
+    <div class="modal-dialog">
+      <form>
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">提交失败</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card-body">
+              您已在本次比赛的队伍中担任队长，无法参与别的队伍。
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="submit" class="btn btn-default" >关闭</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  </div>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+    </div>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../plugins/jszip/jszip.min.js"></script>
+<script src="../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+
+    $('.select2').select2();
+  });
+
+</script>
+</body>
+</html>
