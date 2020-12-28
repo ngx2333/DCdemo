@@ -13,6 +13,10 @@
 		</style>
 		<script type="text/javascript" src="https://api.map.baidu.com/api?type=webgl&v=1.0&ak=puUn7MAx2IDDv2NxTbupBRLDfhAw4bWR"></script>
 		<script type="text/javascript" src="js/map_track.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript" src="js/echarts-wordcloud.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+
 	</head>
 	<body>
 		<header>
@@ -23,29 +27,29 @@
 			<div class="content_left">
 				<div class="dtuplc">
 					<div class="dtu">
-						<div id="container" style="height: 100%;"></div>						
+						<div  style="height: 100%;"></div>						
 					</div>
 					<div class="plc">
-						<div id="container1" style="height: 100%"></div>
+						<div style="height: 100%"></div>
 					</div>
 				</div>
 				<!--
                 	DTU和PLC完
                 -->
                 <div class="online">
-                	<div class="title"><img src="images/icon01.png" /> 设备在线情况</div>
-                	<div class="online_con" id="container2">
+                	<div class="title">设备在线情况</div>
+                	<div class="online_con" >
     
                 	</div>
                 </div>
                 <div class="industry">
-                	<div class="title"><img src="images/icon02.png" /> 接入工厂类型</div>
-                	<div class="industry_con" id="container3"></div>
+                	<div class="title"> 空白</div>
+                	<div class="industry_con" ></div>
                 </div>
 			</div>
 			<div class="content_center">
 				<div class="center_top">
-					<div class="title"><img src="images/icon03.png" /> 定向赛地图</div>
+					<div class="title">定向赛地图</div>
 					<div class="center_top_con" id="distribution_map">
 						<!-- <div class="center_top_con" id="allmap">  -->
 					</div>
@@ -54,24 +58,20 @@
 					<table class="panel-table"bordercolor="#0d48e0" border="1">
                         <thead bgcolor="#0e4ae0" align="center" >
                         <tr height="40">
-                            <th colspan="6"><img /> 队伍信息</th>
+                            <th colspan="6">队伍信息</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr class="aaa" align="center">
-                        	<td v-for="item in factoryHeader" style="color: #00fcff; font-size: 18px; padding: 5px 0;">{{ item.categories }}</td>
+                        	<td  style="color: #00fcff; font-size: 18px; padding: 5px 0;">aa</td>
+							<td  style="color: #00fcff; font-size: 18px; padding: 5px 0;">bb</td>
                         </tr>
-                        <tr v-for="y in factory.slice(0,6)" class="aaa" style="font-size: 16px;" align="center" >
-                            <td>{{ y.company }}</td>
-                            <td>{{ y.dtuCnt }}</td>
-                            <td>{{ y.plcCnt }}</td>
-                            <td>{{ y.dataCnt }}</td>
-                            <td>{{ y.alarm }}</td>
-                            <td width="250">
-                            	<button class="b1 click_pop">报警记录</button>
-                            	<button class="b2 click_pop2">历史数据</button>
-                            	<button class="b3 click_pop3">组态应用</button>
-                            </td>
+
+                        <tr  align="center" >
+                            <td></td>
+                            <td></td>
+   
+
                         </tr>
                         </tbody>
                     </table>
@@ -89,156 +89,23 @@
 					</div>
 				</div>
 				<div class="news_report">
-					<div class="title"><img src="images/icon05.png" /> 报警记录</div>
-					<div class="news_list">
-						<ul>
+					<div class="title"> 评论词云</div>
+					<div id ="main"  style="width: 100%;height:80%;">
+						<!-- <ul>
 							<li v-for="item in almMsg.slice(0,3)" class="li02">
 							    {{ item.msg }}
 							</li>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 				<div class="data_box">
-					<div class="title"><img src="images/icon06.png" /> 数据记录</div>
-					<div class="data_con" id="container4">
+					<div class="title"> 空白</div>
+					<div class="data_con" >
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--遮罩层-->
-		<div class="bgPop"></div>
-		<!--弹出框-->
-		<div class="pop">
-		    <div class="pop-top">
-		        报警记录
-		        <span class="pop-close">Ｘ</span>
-		    </div>
-		    <div class="pop-content">
-		        <table class="panel-table" bordercolor="#deefff" border="1">
-                    <thead bgcolor="#971212" align="center" >
-                        <tr height="38">
-                            <th>字段</th>
-                            <th>字段</th>
-                            <th>字段</th>
-                            <th>字段</th>
-                            <th>字段</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    </tbody>
-                </table>
-		    </div>
-		    <div class="pop-foot">
-		        <input type="button" value="确定" class="pop-cancel pop-close">
-		    </div>
-		</div>
-		<script>
-		    $(document).ready(function () {
-		        $('.pop-close').click(function () {
-		            $('.bgPop,.pop').hide();
-		        });
-		        $('.click_pop').click(function () {
-		            $('.bgPop,.pop').show();
-		        });
-		    })
-		
-		</script>
-		<!--遮罩层-->
-		<div class="bgPop2"></div>
-		<!--弹出框-->
-		<div class="pop2">
-		    <div class="pop-top">
-		        历史记录
-		        <span class="pop-close">Ｘ</span>
-		    </div>
-		    <div class="pop-content">
-		        <table class="panel-table" bordercolor="#deefff" border="1">
-                    <thead bgcolor="#10aaa5" align="center" >
-                        <tr height="38">
-                            <th>字段</th>
-                            <th>字段</th>
-                            <th>字段</th>
-                            <th>字段</th>
-                            <th>字段</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    
-                    <tr class="aaa" style="font-size: 16px;" align="center" >
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    </tbody>
-                </table>
-		    </div>
-		    <div class="pop-foot">
-		        <input type="button" value="确定" class="pop-cancel pop-close">
-		    </div>
-		</div>
-		<script>
-		    $(document).ready(function () {
-		        $('.pop-close').click(function () {
-		            $('.bgPop2,.pop2').hide();
-		        });
-		        $('.click_pop2').click(function () {
-		            $('.bgPop2,.pop2').show();
-		        });
-		    })
-		
-		</script>
+
 		<!--遮罩层-->
 		<div class="bgPop3"></div>
 		<!--弹出框-->
@@ -267,16 +134,144 @@
 		</script>
 		<script type="text/javascript" src="js/jquery.min.js"></script>		
 		<script type="text/javascript" src="js/echarts.min.js"></script>
-		<script type="text/javascript" src="js/china.js"></script>
 		<script type="text/javascript" src="js/vue.min.js"></script>
 		<script type="text/javascript" src="js/map.js"></script>
 		<script type="text/javascript" src="js/times.js"></script>
-		<script type="text/javascript" src="js/DTU.js"></script>
-		<script type="text/javascript" src="js/PLC.js"></script>
-		<script type="text/javascript" src="js/online.js"></script>
-		<script type="text/javascript" src="js/industry.js"></script>
-		<script type="text/javascript" src="js/data.js"></script>
+
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/echarts-wordcloud.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+
+
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('main'));
+	
+			// 指定图表的配置项和数据
+		// 基于准备好的dom，初始化echarts实例
+	
+		var option = {
+			tooltip: {},
+			series: [{
+				type: 'wordCloud',
+				gridSize: 2,
+				sizeRange: [12, 50],
+				// rotationRange: [-90, 90],
+				rotationRange: [-50, 50],
+				shape: 'triangle',
+				// width: 100,
+				// height: 400,
+				textStyle: {
+					normal: {
+						color: function () {
+							return 'rgb(' + [
+								Math.round(Math.random() * 255),
+								Math.round(Math.random() * 255),
+								Math.round(Math.random() * 255)
+							].join(',') + ')';
+						}
+					},
+					emphasis: {
+						shadowBlur: 10,
+						shadowColor: '#333'
+					}
+				},
+				data: [
+					{
+						name: 'Authentication',
+						value: 10000,
+						textStyle: {
+							normal: {
+								color: 'black'
+							},
+							emphasis: {
+								color: 'red'
+							}
+						}
+					},
+					{
+						name: 'Streaming of segmented content',
+						value: 6181
+					},
+					{
+						name: 'Amy Schumer',
+						value: 4386
+					},
+					{
+						name: 'Jurassic World',
+						value: 4055
+					},
+					{
+						name: 'Charter Communications',
+						value: 2467
+					},
+					{
+						name: 'Chick Fil A',
+						value: 2244
+					},
+					{
+						name: 'Planet Fitness',
+						value: 1898
+					},
+					{
+						name: 'Pitch Perfect',
+						value: 1484
+					},
+					{
+						name: 'Express',
+						value: 1112
+					},
+					{
+						name: 'Home',
+						value: 965
+					},
+					{
+						name: 'Johnny Depp',
+						value: 847
+					},
+					{
+						name: 'Lena Dunham',
+						value: 582
+					},
+					{
+						name: 'Lewis Hamilton',
+						value: 555
+					},
+					{
+						name: 'KXAN',
+						value: 550
+					},
+					{
+						name: 'Mary Ellen Mark',
+						value: 462
+					},
+					{
+						name: 'Farrah Abraham',
+						value: 366
+					},
+					{
+						name: 'Rita Ora',
+						value: 360
+					},
+					{
+						name: 'Serena Williams',
+						value: 282
+					},
+					{
+						name: 'NCAA baseball tournament',
+						value: 273
+					},
+					{
+						name: 'Point Break',
+						value: 265
+					}
+				]
+			}]};
+	
+			// 使用刚指定的配置项和数据显示图表。
+			myChart.setOption(option);
+		</script>
+
 		<script type="text/javascript">
 			// GL版命名空间为BMapGL
 			// 按住鼠标右键，修改倾斜角和角度
