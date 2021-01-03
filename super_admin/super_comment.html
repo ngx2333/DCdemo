@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <title>17探索自然8</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+
+
+
+
+    <style>
+    body,
+    html,
+    #container {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    </style>
+    <script src="https://api.map.baidu.com/api?type=webgl&v=1.0&ak=puUn7MAx2IDDv2NxTbupBRLDfhAw4bWR"></script>
+
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="main.html" class="nav-link">主页</a>
+      </li>
+
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../main.html" class="brand-link">
+      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">BigHit 赛事后台</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">系统管理员</a>
+        </div>
+      </div>
+
+  
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+              with font-awesome or any other icon font library -->
+
+
+          <li class="nav-item">
+            <a href="super_user_list.html" class="nav-link">
+              <i class="nav-icon fas fa-list-ul"></i>
+              <p>
+                用户列表
+                <!-- 先选择比赛列表，再选择队伍信息 -->
+              </p>
+            </a>
+          </li>
+
+      
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list-alt"></i>
+              <p>
+                评论列表
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="super_sight.html" class="nav-link">
+              <i class="nav-icon fas fa-dice-d20"></i>
+              <p>
+                场景列表
+              </p>
+            </a>
+          </li>
+
+
+
+
+
+
+
+        </ul>
+      </nav>
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>评论列表</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">主页</a></li>
+                <li class="breadcrumb-item active">评论列表</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <form action="enhanced-results.html">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <!-- <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label>用户名:</label>
+                            <input type="search" class="form-control " value="">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label>用户权限:</label>
+                            <select class="select2" style="width: 100%">
+                                <option>普通用户</option>
+                                <option>赛事管理员</option>
+                                <option>系统管理员</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label>用户状态 :</label>
+                            <select class="select2 " style="width: 100%;">
+
+                                <option>启用</option>
+                                <option>停用</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                        <input type="search" class="form-control form-control-lg" placeholder="关键词搜索" >
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-lg btn-default">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">评论信息</h3>
+                </div>
+
+
+
+                <!-- /.card-header -->
+                <div class="card-body">
+ 
+                  <table id="example2" class="table table-bordered table-hover text-center">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>标题</th>
+                      <th>内容</th>
+                      <th>经度</th>
+                      <th>纬度</th>
+                      <th>合法度</th> 
+                      <th>日期</th>
+                      <th>状态</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                      <!-- <th >
+                        <div class="row">
+                          <div class="col-md-6">
+                            <button type="button" class="btn btn-primary  ">查看</button>
+
+                          </div>
+                          <div class="col-md-6">
+                            <button type="button" class="btn btn-outline-primary  ">参加</button>
+                          </div>
+                        </div>
+                      </th>         -->
+
+
+
+
+
+
+
+
+
+
+                      <tr>
+                        <td>1</td>
+                        <td>测试</td>
+                        <td>这是一条测试内容。</td>
+                        <td>116</td>
+                        <td>59</td>
+                        <td>0.8</td>
+                        <td>2019-09-03</td>
+                        <td>已发布</td>
+                        <td >
+                          <div class=" offset-md-1">
+                            <!-- <button type="button" class="btn btn-success  " data-toggle="modal" data-target="#modal-edit">发布评论</button> -->
+                            <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#modal-delete">删除评论</button>
+
+                          </div>
+                      </td>       
+                      </tr>
+                      
+                      <tr>
+                        <td>2</td>
+                        <td>我爱新大</td>
+                        <td>test</td>
+                        <td>116.3421</td>
+                        <td>59.124</td>
+                        <td>0.9</td>
+                        <td>2019-10-03</td>
+                        <td>已发布</td>
+                        <td >
+                          <div class=" offset-md-1">
+                            <!-- <button type="button" class="btn btn-success  " data-toggle="modal" data-target="#modal-edit">发布评论</button> -->
+                            <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#modal-delete">删除评论</button>
+
+                          </div>
+                      </td>       
+                      </tr>
+                      
+                      <tr>
+                        <td>3</td>
+                        <td>血腥</td>
+                        <td>违规内容测试</td>
+                        <td>116.123</td>
+                        <td>59.4567</td>
+                        <td>0.5</td>
+                        <td>2019-09-03</td>
+                        <td>待审核</td>
+                        <td >
+                          <div class=" offset-md-1">
+                            <button type="button" class="btn btn-success  " data-toggle="modal" data-target="#modal-success">发布评论</button>
+                            <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#modal-delete">删除评论</button>
+
+                          </div>
+                      </td>       
+                      </tr>
+                      
+                      <tr>
+                        <td>4</td>
+                        <td>测试</td>
+                        <td>这是一条测试内容。</td>
+                        <td>116</td>
+                        <td>59</td>
+                        <td>0.8</td>
+                        <td>2019-09-03</td>
+                        <td>已发布</td>
+                        <td >
+                          <div class=" offset-md-1">
+                            <!-- <button type="button" class="btn btn-success  " data-toggle="modal" data-target="#modal-edit">发布评论</button> -->
+                            <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#modal-delete">删除评论</button>
+
+                          </div>
+                      </td>       
+                      </tr>
+
+
+
+                    </tbody>
+
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+
+  
+  <div class="modal fade col-12"  id="modal-choice">
+    <div class="modal-dialog modal-lg">
+      <form>
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">地图定点</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"   >
+
+          <iframe src="../map_marker.html" frameBorder="0" width="770" scrolling="no" height="600"></iframe>
+
+        <div class="modal-footer justify-content-between">
+          <button type="submit" class="btn btn-primary"  data-dismiss="modal" >保存</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
+  </div>
+
+
+  <div class="modal fade col-12"  id="modal-delete">
+    <div class="modal-dialog">
+      <form>
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">是否删除？</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card-body">
+              是否删除该条评论
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="submit" class="btn btn-danger" >是</button>
+          <button type="submit" class="btn btn-primary" >否</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  </div>
+  </div>
+
+
+  <div class="modal fade col-12"  id="modal-success">
+    <div class="modal-dialog">
+      <form>
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">是否发布</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card-body">
+              发布该信息
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="submit" class="btn btn-primary" >是</button>
+          <button type="submit" class="btn btn-danger" >否</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  </div>
+  </div>
+
+
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+    </div>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../plugins/jszip/jszip.min.js"></script>
+<script src="../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+
+<!-- date-range-picker -->
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- BS-Stepper -->
+<script src="../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+
+    $('.select2').select2();
+
+    $('#reservationdate').datetimepicker();
+
+  });
+
+</script>
+
+</body>
+</html>

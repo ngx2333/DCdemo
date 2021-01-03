@@ -93,10 +93,14 @@
       $("#btn").click(function () {
           var sc_number=$("#sc_number").val();
           var sc_passwd=$("#sc_passwd").val();
-          if(sc_number=="123456"){
-            location.href="../main.html";
-          }else{
+          if(sc_number=="20161401205"){
             location.href="../person/comp_list.html";
+          }
+          if (sc_number=="scadmin"){
+            location.href="../admin/scadmin_comp_list.html";
+          }
+          if (sc_number=="superadmin"){
+            location.href="../super_admin/super_user_list.html";
           }
           
       });

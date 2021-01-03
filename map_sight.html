@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+    body, html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    #allmap {
+        height: 100%;
+        width: 100%;
+    }
+    ul li {
+        list-style: none;
+    }
+    .btn-wrap {
+        z-index: 999;
+        position: fixed;
+        bottom: 3.5rem;
+        margin-left: 3rem;
+        padding: 1rem 1rem;
+        border-radius: .25rem;
+        background-color: #fff;
+        box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
+    }
+    .btn {
+        width: 75px;
+        height: 30px;
+        float: left;
+        background-color: #fff;
+        color: rgba(27, 142, 236, 1);
+        font-size: 14px;
+        border:1px solid rgba(27, 142, 236, 1);
+        border-radius: 5px;
+        margin: 0 5px;
+        text-align: center;
+        line-height: 30px;
+    }
+    .btn:hover {
+        background-color: rgba(27, 142, 236, 0.8);
+        color: #fff;
+    }
+</style>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?type=webgl&v=1.0&ak=puUn7MAx2IDDv2NxTbupBRLDfhAw4bWR"></script>
+    <title>添加/清除覆盖物</title>
+</head>
+<body>
+    <div id="allmap"></div>
+
+</body>
+</html>
+    <script type="text/javascript">
+    var map = new BMapGL.Map('allmap');
+    var point = new BMapGL.Point(87.608583,43.778218);
+    map.centerAndZoom(point, 16);
+
+    // 创建矩形
+    var pStart = new BMapGL.Point(87.617063,43.777047);
+    var pEnd = new BMapGL.Point(87.634023,43.764392);
+    var rectangle = new BMapGL.Polygon([
+        new BMapGL.Point(pStart.lng, pStart.lat),
+        new BMapGL.Point(pEnd.lng, pStart.lat),
+        new BMapGL.Point(pEnd.lng, pEnd.lat),
+        new BMapGL.Point(pStart.lng, pEnd.lat)
+    ], {
+        strokeColor: 'blue',
+        strokeWeight: 2,
+        strokeOpacity: 0.5
+    });
+    // 添加覆盖物
+    function addOverlay() {
+
+        map.addOverlay(rectangle); // 增加矩形
+    }
+    // 清除覆盖物
+    function removeOverlay() {
+        map.clearOverlays();
+    }
+    addOverlay();
+    </script>
